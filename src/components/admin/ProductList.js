@@ -37,7 +37,7 @@ export const ProductList = () => {
               </tr>
               {prices.length > 1 &&
                 prices.map(
-                  ({ id, unit_amount: unitAmount, nickname, active }) => (
+                  ({ id, unit_amount: unitAmount, active }) => (
                     <tr key={id}>
                       <td>
                         <input
@@ -46,7 +46,7 @@ export const ProductList = () => {
                           readOnly
                           style={{ marginLeft: "2rem" }}
                         />{" "}
-                        <span>{nickname}</span>
+                        <span>nickname</span>
                       </td>
                       <td>{(unitAmount / 100).toFixed(2)}</td>
                     </tr>

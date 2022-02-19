@@ -113,8 +113,7 @@ const mergeStripeData = (stripeData, products) => {
 export const priceFragment = graphql`
   fragment Price on StripePrice {
     id
-    unit_amount
-    nickname
+    unit_amount    
     fields {
       slug
     }
