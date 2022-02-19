@@ -4,9 +4,9 @@ dotenv.config();
 
 module.exports = {
   siteMetadata: {
-    title: `campy trails`,
-    description: `Stripe storefront starter for Gatsby`,
-    author: `Brock McElroy <brxck.dev>`,
+    title: `WAFN`,
+    description: `Stripe storefront for wafn`,
+    author: `Vince Grilli`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -30,7 +30,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/wafn-logo-sm.png`, // This path is relative to the root of the site.
       },
     },
     {
