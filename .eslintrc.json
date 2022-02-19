@@ -1,7 +1,17 @@
 {
-  "extends": "gatsby-standard",
+  "extends": ["wesbos"],
   "rules": {
     "react/prop-types": 1,
-    "camelcase": [1, { "ignoreDestructuring": true }]
+    "camelcase": [1, { "ignoreDestructuring": true }],
+    "no-console": 2,
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 120,
+        "tabWidth": 8,
+      }
+    ]
   }
 }
