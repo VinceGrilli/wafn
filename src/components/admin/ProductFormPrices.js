@@ -1,13 +1,13 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function ProductFormPrices({ prices, setPrices }) {
-  const onChange = i => e => {
-    const updatedPrices = [...prices]
-    const { name, checked, value, type } = e.target
-    updatedPrices[i][name] = type === "checkbox" ? checked : value
-    setPrices(updatedPrices)
-  }
+  const onChange = (i) => (e) => {
+    const updatedPrices = [...prices];
+    const { name, checked, value, type } = e.target;
+    updatedPrices[i][name] = type === 'checkbox' ? checked : value;
+    setPrices(updatedPrices);
+  };
 
   return (
     <table>
@@ -21,7 +21,7 @@ function ProductFormPrices({ prices, setPrices }) {
       <tbody>
         {prices.map((price, i) => (
           <tr key={price.id || i}>
-            <td style={{ width: "30%" }}>
+            <td style={{ width: '30%' }}>
               <input
                 className="mb-2 form-input"
                 name="unit_amount"
@@ -32,7 +32,7 @@ function ProductFormPrices({ prices, setPrices }) {
                 onChange={onChange(i)}
               />
             </td>
-            <td style={{ textAlign: "center" }}>
+            <td style={{ textAlign: 'center' }}>
               <input
                 className="form-checkbox"
                 type="checkbox"
@@ -46,12 +46,12 @@ function ProductFormPrices({ prices, setPrices }) {
         ))}
       </tbody>
     </table>
-  )
+  );
 }
 
 ProductFormPrices.propTypes = {
   prices: PropTypes.array.isRequired,
   setPrices: PropTypes.func.isRequired,
-}
+};
 
-export default ProductFormPrices
+export default ProductFormPrices;

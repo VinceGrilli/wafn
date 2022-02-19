@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
-import { CartContext } from './CartProvider'
-import Checkout from './Checkout'
-import CartItem from './CartItem'
+import React, { useContext } from 'react';
+import { CartContext } from './CartProvider';
+import Checkout from './Checkout';
+import CartItem from './CartItem';
 
 const Cart = () => {
-  const { cart, count, mode, toggle } = useContext(CartContext)
+  const { cart, count, mode, toggle } = useContext(CartContext);
   return (
     <>
       <button type="button" onClick={() => toggle()}>
@@ -32,15 +32,12 @@ const Cart = () => {
           </button>
         </div>
 
-        {count > 0 &&
-          cart.map(([price, quantity]) => (
-            <CartItem key={price.id} price={price} quantity={quantity} />
-          ))}
+        {count > 0 && cart.map(([price, quantity]) => <CartItem key={price.id} price={price} quantity={quantity} />)}
         {count === 0 && <span>No items in cart.</span>}
         {count > 0 && <Checkout />}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

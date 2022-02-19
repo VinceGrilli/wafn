@@ -1,80 +1,78 @@
-import React, { useContext, useState, useEffect } from "react"
-import PropTypes from "prop-types"
-import { navigate } from "gatsby"
-import { useForm } from "react-hook-form"
+import React, { useContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { navigate } from 'gatsby';
+import { useForm } from 'react-hook-form';
 
-import { StripeProductsContext } from "./StripeProductsProvider"
-import ProductFormPrices from "./ProductFormPrices"
-import ProductFormImages from "./ProductFormImages"
-import * as css from "./ProductForm.module.css"
+import { StripeProductsContext } from './StripeProductsProvider';
+import ProductFormPrices from './ProductFormPrices';
+import ProductFormImages from './ProductFormImages';
+import * as css from './ProductForm.module.css';
 
 export const ProductForm = ({ product, create }) => {
-  const pricesToDecimal = prices => {
-    return prices.map(price => {
-      price.unit_amount = (price.unit_amount / 100).toFixed(2)
-      return price
-    })
-  }
+  const pricesToDecimal = (prices) =>
+    prices.map((price) => {
+      price.unit_amount = (price.unit_amount / 100).toFixed(2);
+      return price;
+    });
 
   const addPrice = () => {
-    setPrices([...prices, { active: true, unit_amount: 0, name: "" }])
-  }
+    setPrices([...prices, { active: true, unit_amount: 0, name: '' }]);
+  };
 
-  const pricesToInteger = prices => {
-    return prices.map(price => {
-      price.unit_amount = parseFloat(price.unit_amount) * 100
-      return price
-    })
-  }
+  const pricesToInteger = (prices) =>
+    prices.map((price) => {
+      price.unit_amount = parseFloat(price.unit_amount) * 100;
+      return price;
+    });
 
   const authFetch = (url, options) => {
-    const user = JSON.parse(localStorage.getItem("gotrue.user"))
-    const headers = { Authorization: `Bearer ${user.token.access_token}` }
+    const user = JSON.parse(localStorage.getItem('gotrue.user'));
+    const headers = { Authorization: `Bearer ${user.token.access_token}` };
     return fetch(url, {
       ...options,
       headers,
-    })
-  }
+    });
+  };
 
-  const onDelete = async e => {
-    e.preventDefault()
+  const onDelete = async (e) => {
+    e.preventDefault();
     await authFetch(`/.netlify/functions/productDelete`, {
-      method: "DELETE",
+      method: 'DELETE',
       body: JSON.stringify({ productId: product.id }),
-    })
-    fetchProducts()
-    alert("Product deleted.")
-    navigate("/admin")
-  }
+    });
+    fetchProducts();
+    alert('Product deleted.');
+    navigate('/admin');
+  };
 
-  const onSubmit = async data => {
+  const onSubmit = async (data) => {
     const body = JSON.stringify({
-      product: { ...data.product, images: images },
+      product: { ...data.product, images },
       prices: pricesToInteger(data.prices),
       productId: product.id,
-    })
-    const path = create ? "productCreate" : "productUpdate"
+    });
+    const path = create ? 'productCreate' : 'productUpdate';
     await authFetch(`/.netlify/functions/${path}`, {
-      method: "POST",
+      method: 'POST',
       body,
-    })
-    fetchProducts()
-    alert("Product saved.")
-    navigate("/admin")
-  }
+    });
+    fetchProducts();
+    alert('Product saved.');
+    navigate('/admin');
+  };
 
-  const { fetchProducts } = useContext(StripeProductsContext)
-  const [images, setImages] = useState(product.images)
-  const [prices, setPrices] = useState(pricesToDecimal(product.prices))
+  const { fetchProducts } = useContext(StripeProductsContext);
+  const [images, setImages] = useState(product.images);
+  const [prices, setPrices] = useState(pricesToDecimal(product.prices));
   const { register, handleSubmit, reset } = useForm({
     defaultValues: { product },
-  })
+  });
 
   useEffect(() => {
-    reset({ product })
-    setImages(product.images)
-    setPrices(pricesToDecimal(product.prices))
-  }, [product, reset])
+    reset({ product });
+    setImages(product.images);
+    setPrices(pricesToDecimal(product.prices));
+  }, [product, reset]);
 
   return (
     <>
@@ -92,9 +90,9 @@ export const ProductForm = ({ product, create }) => {
       <div className={css.container}>
         <div className={css.product}>
           <div className={css.header}>
-            <h3>{product.id ? "Update" : "Create"} Product</h3>
+            <h3>{product.id ? 'Update' : 'Create'} Product</h3>
             <label>
-              <input type="checkbox" ref={register()} name="product.active" />{" "}
+              <input type="checkbox" ref={register()} name="product.active" />{' '}
               Active
             </label>
           </div>
@@ -121,29 +119,23 @@ export const ProductForm = ({ product, create }) => {
             <h3>Prices</h3>
             <button onClick={addPrice}>Add Price</button>
           </div>
-          <ProductFormPrices
-            prices={prices}
-            setPrices={setPrices}
-          ></ProductFormPrices>
+          <ProductFormPrices prices={prices} setPrices={setPrices} />
         </div>
 
         <div className={css.images}>
           <div className={css.header}>
             <h3>Images</h3>
           </div>
-          <ProductFormImages
-            images={images}
-            setImages={setImages}
-          ></ProductFormImages>
+          <ProductFormImages images={images} setImages={setImages} />
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 ProductForm.propTypes = {
   product: PropTypes.object.isRequired,
   create: PropTypes.bool.isRequired,
-}
+};
 
-export default ProductForm
+export default ProductForm;

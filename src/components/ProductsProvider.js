@@ -94,7 +94,9 @@ const mergeStripeData = (stripeData, products) => {
   stripeData.forEach((stripePrice) => {
     if (!stripePrice.product.active) return;
     const { id } = stripePrice.product;
-    const gatsbyPrice = products[id].prices.find((x) => x.id === stripePrice.id);
+    const gatsbyPrice = products[id].prices.find(
+      (x) => x.id === stripePrice.id
+    );
     const updatedPrice = Object.assign(stripePrice, gatsbyPrice);
     if (!mergedProducts[id]) {
       stripePrice.product.slug = products[id].slug;

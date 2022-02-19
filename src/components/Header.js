@@ -1,9 +1,9 @@
-import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import PropTypes from "prop-types"
+import React from 'react';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 
-import * as css from "./Header.module.css"
-import Cart from "./Cart"
+import * as css from './Header.module.css';
+import Cart from './Cart';
 
 function Header(props) {
   const data = useStaticQuery(graphql`
@@ -14,7 +14,7 @@ function Header(props) {
         }
       }
     }
-  `)
+  `);
   return (
     <header className={css.header}>
       <nav>
@@ -27,9 +27,9 @@ function Header(props) {
         </div>
       </nav>
     </header>
-  )
+  );
 }
 
-Header.propTypes = { cart: PropTypes.bool.isRequired }
+Header.propTypes = { cart: PropTypes.bool.isRequired };
 
-export default Header
+export default Header;

@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react';
 
-import StoreLayout from "../components/StoreLayout"
-import SEO from "../components/SEO"
+import StoreLayout from '../components/StoreLayout';
+import SEO from '../components/SEO';
 
 const NotFoundPage = () => (
   <StoreLayout>
@@ -9,6 +9,6 @@ const NotFoundPage = () => (
     <h1>NOT FOUND</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
   </StoreLayout>
-)
+);
 
-export default NotFoundPage
+export default NotFoundPage;

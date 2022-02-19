@@ -1,12 +1,12 @@
-import React, { useContext } from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
-import { CartContext } from "./CartProvider"
-import * as css from "./CartItem.module.css"
+import { CartContext } from './CartProvider';
+import * as css from './CartItem.module.css';
 
 const CartItem = ({ price, quantity }) => {
-  const { remove } = useContext(CartContext)
+  const { remove } = useContext(CartContext);
   return (
     <div key={price.id} className={css.container}>
       <Link to={`/buy/${price.product.slug}`} className={css.image}>
@@ -17,9 +17,10 @@ const CartItem = ({ price, quantity }) => {
       </Link>
       <div className={css.description}>
         <button
+          type="button"
           className={css.remove}
           onClick={() => {
-            remove(price.id)
+            remove(price.id);
           }}
         >
           &times;
@@ -37,12 +38,12 @@ const CartItem = ({ price, quantity }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 CartItem.propTypes = {
   price: PropTypes.object.isRequired,
   quantity: PropTypes.number.isRequired,
-}
+};
 
-export default CartItem
+export default CartItem;

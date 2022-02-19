@@ -65,6 +65,7 @@ const ProductPage = ({ productId }) => {
         )}
 
         <button
+          type="button"
           onClick={() => {
             add(activePrice.id);
             toggle(true);
