@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
+import styled from 'styled-components';
 import { ProductsContext } from './ProductsProvider';
 import { CartContext } from './CartProvider';
 import * as css from './ProductPage.module.css';
@@ -11,7 +12,9 @@ const ProductPage = ({ productId }) => {
   const { add, toggle, available } = useContext(CartContext);
 
   const product = products[productId];
-  const prices = [...product.prices].sort((a, b) => a.unit_amount - b.unit_amount);
+  const prices = [...product.prices].sort(
+    (a, b) => a.unit_amount - b.unit_amount
+  );
   const [activePrice, setActivePrice] = useState(prices[0]);
   const [imageIndex, setImageIndex] = useState(0);
 

@@ -1,4 +1,4 @@
-const dotenv = require("dotenv");
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -36,11 +36,11 @@ module.exports = {
     {
       resolve: `gatsby-source-stripe`,
       options: {
-        objects: ["Price"],
+        objects: ['Price'],
         secretKey: process.env.STRIPE_SECRET_KEY,
         downloadFiles: true,
         auth: false,
       },
     },
   ],
-}
+};
