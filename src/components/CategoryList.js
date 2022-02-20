@@ -1,6 +1,24 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import Img from 'gatsby-image';
+import styled from 'styled-components';
+
+const CategoryGridStyles = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4rem;
+  grid-auto-rows: auto 500px;
+  h3 {
+    text-align: center;
+    color: black;
+    margin-top: 1rem;
+  }
+`;
+
+const SingleCategoryStyles = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr;
+`;
 
 export default function CategoryList() {
   const data = useStaticQuery(graphql`
@@ -24,15 +42,17 @@ export default function CategoryList() {
     }
   `);
 
-  return data.allFile.nodes.map((image) => {
+  const category = data.allFile.nodes.map((image) => {
     const name = image.childImageSharp.fluid.originalName.replace('.jpg', '');
     return (
-      <div key={image.id}>
+      <SingleCategoryStyles key={image.id}>
         <Link to={`categories/${name.replace('-', '').toLowerCase()}`}>
           <h3>{name} </h3>
-          <Img fluid={image.childImageSharp.fluid} />
         </Link>
-      </div>
+        <Img fluid={image.childImageSharp.fluid} />
+      </SingleCategoryStyles>
     );
   });
+
+  return <CategoryGridStyles>{category}</CategoryGridStyles>;
 }
