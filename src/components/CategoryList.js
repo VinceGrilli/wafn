@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const CategoryGridStyles = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 4rem;
   grid-auto-rows: auto 500px;
   h3 {
@@ -48,8 +48,8 @@ export default function CategoryList() {
       <SingleCategoryStyles key={image.id}>
         <Link to={`categories/${name.replace('-', '').toLowerCase()}`}>
           <h3>{name} </h3>
+          <Img fluid={image.childImageSharp.fluid} />
         </Link>
-        <Img fluid={image.childImageSharp.fluid} />
       </SingleCategoryStyles>
     );
   });

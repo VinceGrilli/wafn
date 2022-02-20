@@ -1,5 +1,14 @@
 import React from 'react';
 
-export default function tshirtsPage() {
-  return <div>tshirtsPage</div>;
-}
+import StoreLayout from '../../components/StoreLayout';
+import Products from '../../components/Products';
+import SEO from '../../components/SEO';
+
+const IndexPage = () => (
+  <StoreLayout>
+    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <Products />
+  </StoreLayout>
+);
+
+export default IndexPage;

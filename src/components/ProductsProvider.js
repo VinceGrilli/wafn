@@ -127,6 +127,9 @@ export const priceFragment = graphql`
       created
       updated
       images
+      metadata {
+        category
+      }
       localFiles {
         childImageSharp {
           gatsbyImageData(layout: CONSTRAINED, width: $maxWidth)
