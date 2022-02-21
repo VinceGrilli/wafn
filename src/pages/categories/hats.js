@@ -16,7 +16,6 @@ const ProductStyles = styled.div`
 const Hats = () => {
   const { listProducts } = useContext(ProductsContext);
   const products = listProducts();
-  console.log(products);
   return (
     <ProductStyles>
       {products.map((product) =>

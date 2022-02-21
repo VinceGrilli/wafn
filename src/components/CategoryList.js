@@ -41,11 +41,10 @@ export default function CategoryList() {
       }
     }
   `);
-
   const category = data.allFile.nodes.map((image) => {
     const name = image.childImageSharp.fluid.originalName.replace('.jpg', '');
     return (
-      <SingleCategoryStyles key={image.id}>
+      <SingleCategoryStyles key={image.childImageSharp.id}>
         <Link to={`categories/${name.replace('-', '').toLowerCase()}`}>
           <h3>{name} </h3>
           <Img fluid={image.childImageSharp.fluid} />
