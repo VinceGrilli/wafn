@@ -23,7 +23,7 @@ const Cart = () => {
           backgroundColor: 'white',
           maxWidth: 400,
           width: '100%',
-          zIndex: 1,
+          zIndex: 10,
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>

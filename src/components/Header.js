@@ -3,12 +3,12 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import icon from '../images/wafn-logo-sm.png';
+import icon from '../../images/wafn-logo-sm.png';
 import Cart from './Cart';
 
 const StyledHeader = styled.header`
   background: black;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid black;
   nav {
     border-top: 8px solid black;
     align-items: center;

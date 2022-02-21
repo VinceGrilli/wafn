@@ -5,12 +5,15 @@ import Header from './Header';
 import ProductsProvider from './ProductsProvider';
 import CartProvider from './CartProvider';
 import * as css from './StoreLayout.module.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import MyCarousel from './Carousel';
 
 const StoreLayout = ({ children }) => (
   <ProductsProvider>
     <CartProvider>
       <Header cart />
 
+      <MyCarousel />
       <main className={css.main}>{children}</main>
 
       <footer style={{ textAlign: 'center', margin: '2rem 0' }}>
