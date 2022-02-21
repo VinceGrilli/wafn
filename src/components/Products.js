@@ -16,13 +16,9 @@ const Items = () => {
   console.log(products);
   return (
     <ProductStyles>
-      {products.map((product) =>
-        product.metadata.category === 'hats' ? (
-          <ProductThumbnail key={product.id} product={product} />
-        ) : (
-          ''
-        )
-      )}
+      {products.map((product) => (
+        <ProductThumbnail key={product.id} product={product} />
+      ))}
     </ProductStyles>
   );
 };

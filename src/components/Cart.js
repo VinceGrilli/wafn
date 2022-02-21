@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { MdOutlineShoppingCart as MDCart } from 'react-icons/md';
 import { CartContext } from './CartProvider';
 import Checkout from './Checkout';
 import CartItem from './CartItem';
@@ -8,7 +9,7 @@ const Cart = () => {
   return (
     <>
       <button type="button" onClick={() => toggle()}>
-        Cart
+        Cart &nbsp; <MDCart />
       </button>
       <div
         style={{
@@ -32,7 +33,10 @@ const Cart = () => {
           </button>
         </div>
 
-        {count > 0 && cart.map(([price, quantity]) => <CartItem key={price.id} price={price} quantity={quantity} />)}
+        {count > 0 &&
+          cart.map(([price, quantity]) => (
+            <CartItem key={price.id} price={price} quantity={quantity} />
+          ))}
         {count === 0 && <span>No items in cart.</span>}
         {count > 0 && <Checkout />}
       </div>

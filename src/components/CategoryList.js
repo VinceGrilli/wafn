@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const CategoryGridStyles = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 4rem;
+  grid-gap: 3rem;
   grid-auto-rows: auto 500px;
   h3 {
     text-align: center;

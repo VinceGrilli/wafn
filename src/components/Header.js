@@ -1,32 +1,58 @@
-import React from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import * as css from './Header.module.css';
+import icon from '../images/wafn-logo-sm.png';
 import Cart from './Cart';
 
-function Header(props) {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+const StyledHeader = styled.header`
+  background: black;
+  border-bottom: 1px solid #ddd;
+  nav {
+    border-top: 8px solid black;
+    align-items: center;
+    margin: 0 auto 0.5rem;
+    max-width: 900px;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+  }
+  a {
+    color: #ddd;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  a.nav-link:visited {
+    text-decoration: none;
+  }
+`;
+function Header({ cart }) {
+  const [active, setActive] = useState(false);
+  const [navBarActiveClass, SetNavBarActiveClass] = useState('');
+
+  const toggleActive = () => {
+    setActive(!active);
+    active ? SetNavBarActiveClass('is-active') : SetNavBarActiveClass('');
+  };
   return (
-    <header className={css.header}>
+    <StyledHeader>
       <nav>
-        <Link to="/" className={css.title}>
-          {data.site.siteMetadata.title}
+        <Link to="/">
+          <img src={icon} alt="WAFN" />
         </Link>
-        <div className={css.links}>
-          <Link to="/admin">Admin</Link>
-          {props.cart && <Cart />}
+        <div>
+          <Link to="/">Home</Link>
+
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact</Link>
+          {cart && <Cart />}
         </div>
       </nav>
-    </header>
+    </StyledHeader>
   );
 }
 
