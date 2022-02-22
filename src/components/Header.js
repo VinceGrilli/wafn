@@ -31,13 +31,6 @@ const StyledHeader = styled.header`
   }
 `;
 function Header({ cart }) {
-  const [active, setActive] = useState(false);
-  const [navBarActiveClass, SetNavBarActiveClass] = useState('');
-
-  const toggleActive = () => {
-    setActive(!active);
-    active ? SetNavBarActiveClass('is-active') : SetNavBarActiveClass('');
-  };
   return (
     <StyledHeader>
       <nav>
