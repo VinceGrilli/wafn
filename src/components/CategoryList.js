@@ -12,6 +12,7 @@ const CategoryGridStyles = styled.div`
     text-align: center;
     color: black;
     margin-top: 1rem;
+    text-decoration: none;
   }
 `;
 

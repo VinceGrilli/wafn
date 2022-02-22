@@ -1,24 +1,58 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import styled from 'styled-components';
 
 import { CartContext } from './CartProvider';
-import * as css from './CartItem.module.css';
+
+const CartStyles = styled.div`
+  display: flex;
+  margin: 1rem 0;
+  position: relative;
+
+  .image {
+    margin-right: 1rem;
+  }
+
+  .image img {
+    width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+  }
+
+  .description {
+    flex-basis: 100%;
+    color: black;
+  }
+
+  .quantity {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .remove {
+    position: absolute;
+    height: 1.5rem;
+    width: 1.5rem;
+    right: 0;
+    top: 0;
+  }
+`;
 
 const CartItem = ({ price, quantity }) => {
   const { remove } = useContext(CartContext);
   return (
-    <div key={price.id} className={css.container}>
-      <Link to={`/buy/${price.product.slug}`} className={css.image}>
+    <CartStyles key={price.id}>
+      <Link to={`/buy/${price.product.slug}`} className="image">
         <img
           src={price.image || price.product.images[0]}
           alt={price.product.name}
         />
       </Link>
-      <div className={css.description}>
+      <div className="description">
         <button
           type="button"
-          className={css.remove}
+          className="remove"
           onClick={() => {
             remove(price.id);
           }}
@@ -30,14 +64,14 @@ const CartItem = ({ price, quantity }) => {
             <strong>{price.product.name}</strong>
           </div>
         </Link>
-        <div className={css.quantity}>
+        <div className="quantity">
           <span>
             ${price.unit_amount / 100} &times; {quantity}
           </span>
           <strong>${(price.unit_amount / 100) * quantity}</strong>
         </div>
       </div>
-    </div>
+    </CartStyles>
   );
 };
 

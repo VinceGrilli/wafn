@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import Header from './Header';
 import ProductsProvider from './ProductsProvider';
 import CartProvider from './CartProvider';
-import * as css from './StoreLayout.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyCarousel from './Carousel';
 import Footer from './Footer';
+
+const MainStyles = styled.main`
+  margin: 2rem auto;
+  max-width: 960px;
+`;
 
 const StoreLayout = ({ children }) => (
   <ProductsProvider>
@@ -15,7 +20,7 @@ const StoreLayout = ({ children }) => (
       <Header cart />
 
       <MyCarousel />
-      <main className={css.main}>{children}</main>
+      <MainStyles> {children}</MainStyles>
       <Footer />
     </CartProvider>
   </ProductsProvider>
