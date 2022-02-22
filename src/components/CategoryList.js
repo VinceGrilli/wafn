@@ -8,6 +8,7 @@ const CategoryGridStyles = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 3rem;
   grid-auto-rows: auto 500px;
+  margin: auto 1rem;
   h3 {
     text-align: center;
     color: black;

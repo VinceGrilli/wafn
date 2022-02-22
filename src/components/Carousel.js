@@ -11,8 +11,8 @@ export default function MyCarousel() {
         edges {
           node {
             childImageSharp {
-              fixed {
-                ...GatsbyImageSharpFixed
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid
               }
               id
             }
@@ -34,8 +34,8 @@ export default function MyCarousel() {
         <Carousel.Item key={image.node.childImageSharp.id} interval={2000}>
           <Img
             className={css.carouselImg}
-            fixed={image.node.childImageSharp.fixed}
-            alt={image.node.childImageSharp.fixed.originalName}
+            fluid={image.node.childImageSharp.fluid}
+            alt={image.node.childImageSharp.fluid.originalName}
           />
         </Carousel.Item>
       ))}

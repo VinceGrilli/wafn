@@ -35,7 +35,12 @@ export default function ContactPage() {
   return (
     <StoreLayout>
       <SEO title="Home" keywords={[`wafn`, `offical`, `home`]} />
-      <FormStyles>
+      <FormStyles
+        name="Contact Form"
+        method="POST"
+        netlify="true"
+        data-netlify="true"
+      >
         <fieldset>
           <legend>Contact WAFN</legend>
           <label htmlFor="name">
