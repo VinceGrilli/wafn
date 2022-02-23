@@ -12,6 +12,24 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-source-mysql`,
+      options: {
+        connectionDetails: {
+          host: 'process.env.GATSBY_MYSQL_HOST',
+          user: 'process.env.GATSBY_MYSQL_USERNAME',
+          password: 'process.env.GATSBY_MYSQL_PSW',
+          database: 'process.env.GATSBY_MYSQL_DB',
+        },
+        queries: [
+          {
+            statement: 'SELECT * FROM content_content',
+            idFieldName: 'ID',
+            name: 'content',
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
