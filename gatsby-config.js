@@ -57,7 +57,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `pictures/wafn-logo-sm.png`, // This path is relative to the root of the site.
+        icon: `pictures/wafn-logo-sm.jpg`, // This path is relative to the root of the site.
       },
     },
     {

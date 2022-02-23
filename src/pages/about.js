@@ -8,8 +8,15 @@ const AboutStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 2rem;
-
   margin: auto 1rem;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2;
+    div {
+      text-align: center;
+    }
+  }
 `;
 
 export default function AboutPage() {
@@ -19,7 +26,6 @@ export default function AboutPage() {
         childImageSharp {
           fluid(maxWidth: 400, quality: 100) {
             ...GatsbyImageSharpFluid
-            ...GatsbyImageSharpFluidLimitPresentationSize
             originalName
           }
           id
@@ -32,7 +38,9 @@ export default function AboutPage() {
   return (
     <StoreLayout>
       <AboutStyles>
-        <Img fluid={image} alt={image.originalName} />
+        <div>
+          <Img fluid={image} alt={image.originalName} />
+        </div>
         <div>
           <p>
             Where do we start? We determined that the leading lifestyle brand
