@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import icon from '../../images/wafn-logo-sm.png';
+import icon from '../../pictures/wafn-logo-sm.png';
 import Cart from './Cart';
 
 const StyledHeader = styled.header`

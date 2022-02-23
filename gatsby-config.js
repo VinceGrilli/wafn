@@ -21,8 +21,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `carousel`,
-        path: `${__dirname}/src/images/carousel`,
+        name: `pictures`,
+        path: `${__dirname}/pictures`,
       },
     },
     `gatsby-plugin-image`,
@@ -37,7 +37,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `images/wafn-logo-sm.png`, // This path is relative to the root of the site.
+        icon: `pictures/wafn-logo-sm.png`, // This path is relative to the root of the site.
       },
     },
     {

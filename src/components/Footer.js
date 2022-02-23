@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import facebook from '../../images/social/facebook.svg';
-import instagram from '../../images/social/instagram.svg';
-import twitter from '../../images/social/twitter.svg';
+import facebook from '../../pictures/social/facebook.svg';
+import instagram from '../../pictures/social/instagram.svg';
+import twitter from '../../pictures/social/twitter.svg';
 
 const FooterStyles = styled.footer`
   display: grid;
