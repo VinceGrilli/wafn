@@ -1,49 +1,49 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
+import { MdMenu } from 'react-icons/md';
 import icon from '../../pictures/wafn-logo-sm.jpg';
 import Cart from './Cart';
+import StyledHeader from './StyledHeader';
 
-const StyledHeader = styled.header`
-  background: black;
-  border-bottom: 1px solid black;
-  nav {
-    border-top: 8px solid black;
-    align-items: center;
-    margin: 0 auto 0.5rem;
-    max-width: 900px;
-    padding: 0 1rem;
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
-  }
-  a {
-    color: #ddd;
-    margin-right: 1rem;
-    font-size: 1.2rem;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-  a.nav-link:visited {
-    text-decoration: none;
-  }
-`;
 function Header({ cart }) {
+  const [navbarOpen, setNavbarOpen] = useState(false);
+
+  const handleToggle = () => {
+    setNavbarOpen((prev) => !prev);
+  };
+
+  const closeMenu = () => {
+    setNavbarOpen(false);
+  };
   return (
     <StyledHeader>
       <nav>
         <Link to="/">
           <img src={icon} alt="WAFN" />
         </Link>
-        <div>
-          <Link to="/">Home</Link>
+        <button type="button" className="burger" onClick={handleToggle}>
+          <MdMenu style={{ color: '#fff', width: '2.7rem', height: '3rem' }} />
+        </button>
+        <ul className={`menuNav ${navbarOpen ? 'showMenu' : ''}`}>
+          <li>
+            <Link onClick={() => closeMenu()} to="/">
+              Home
+            </Link>
+          </li>
 
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-          {cart && <Cart />}
-        </div>
+          <li>
+            <Link onClick={() => closeMenu()} to="/about">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link onClick={() => closeMenu()} to="/contact">
+              Contact
+            </Link>
+          </li>
+          <li>{cart && <Cart />}</li>
+        </ul>
       </nav>
     </StyledHeader>
   );
