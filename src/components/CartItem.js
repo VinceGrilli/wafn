@@ -67,7 +67,7 @@ const CartItem = ({ price, quantity }) => {
         </Link>
         <div className="quantity">
           <span>
-            ${price.unit_amount / 100} &times; {quantity} &nbsp;
+            ${price.unit_amount / 100} &times; {quantity}
           </span>
           <strong>${(price.unit_amount / 100) * quantity}</strong>
         </div>

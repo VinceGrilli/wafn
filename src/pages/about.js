@@ -4,6 +4,12 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import StoreLayout from '../components/StoreLayout';
 
+const H2Styles = styled.h2`
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+`;
+
 const AboutStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -37,6 +43,7 @@ export default function AboutPage() {
   console.log(image);
   return (
     <StoreLayout>
+      <H2Styles>About WAFN</H2Styles>
       <AboutStyles>
         <div>
           <Img fluid={image} alt={image.originalName} />

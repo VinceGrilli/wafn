@@ -9,8 +9,9 @@ const FooterStyles = styled.footer`
   text-align: center;
   background-color: black;
   color: white;
+  top: 100%;
   position: sticky;
-  top: 100vh;
+
   margin-top: 4rem;
   div {
     display: grid;

@@ -21,6 +21,10 @@ const CartWrapperStyles = styled.div`
   div {
     justify-content: space-between;
   }
+  span {
+    display: block;
+    margin-top: 1rem;
+  }
 `;
 
 const Cart = () => {

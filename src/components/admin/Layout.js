@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import '../hiq.css';
-import Header from '../Header';
+import Navbar from '../Navbar';
 import StripeProductsProvider from './StripeProductsProvider';
 
 const Layout = ({ children }) => (
   <StripeProductsProvider>
-    <Header cart={false} />
+    <Navbar cart={false} />
     <main>{children}</main>
   </StripeProductsProvider>
 );

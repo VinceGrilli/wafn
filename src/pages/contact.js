@@ -8,6 +8,7 @@ const FormStyles = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  margin: auto 1rem;
   fieldset {
     grid-column: span 2;
     max-height: 600px;
