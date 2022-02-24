@@ -5,15 +5,22 @@ import StoreLayout from '../components/StoreLayout';
 import SEO from '../components/SEO';
 import CategoryList from '../components/CategoryList';
 
-const H2Styles = styled.h2`
+const H1Styles = styled.h1`
   text-align: center;
   font-weight: 600;
+`;
+
+const H4Styles = styled.h4`
+  text-align: center;
+  font-weight: 600;
+  margin: 1rem auto;
 `;
 
 const IndexPage = () => (
   <StoreLayout>
     <SEO title="Home" keywords={[`wafn`, `offical`, `home`]} />
-    <H2Styles>WAFN OFFICIAL ONLINE STORE</H2Styles>
+    <H1Styles>WAFN OFFICIAL ONLINE STORE</H1Styles>
+    <H4Styles>What a F&#$ing Nightmare</H4Styles>
     <CategoryList />
   </StoreLayout>
 );

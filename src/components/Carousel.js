@@ -31,7 +31,7 @@ export default function MyCarousel() {
       pause={false}
     >
       {data.images.edges.map((image) => (
-        <Carousel.Item key={image.node.childImageSharp.id} interval={2000}>
+        <Carousel.Item key={image.node.childImageSharp.id} interval={3000}>
           <Img
             className={css.carouselImg}
             fluid={image.node.childImageSharp.fluid}

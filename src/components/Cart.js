@@ -24,6 +24,7 @@ const Cart = () => {
           maxWidth: 400,
           width: '100%',
           zIndex: 10,
+          transition: 'all 0.3s ease-in',
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
