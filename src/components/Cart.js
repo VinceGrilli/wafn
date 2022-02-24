@@ -21,10 +21,6 @@ const CartWrapperStyles = styled.div`
   div {
     justify-content: space-between;
   }
-  span {
-    display: block;
-    margin-top: 1rem;
-  }
 `;
 
 const Cart = () => {
@@ -46,7 +42,11 @@ const Cart = () => {
           cart.map(([price, quantity]) => (
             <CartItem key={price.id} price={price} quantity={quantity} />
           ))}
-        {count === 0 && <span>No items in cart.</span>}
+        {count === 0 && (
+          <span style={{ display: 'block', marginTop: '1rem' }}>
+            No items in cart.
+          </span>
+        )}
         {count > 0 && <Checkout />}
       </CartWrapperStyles>
     </>
