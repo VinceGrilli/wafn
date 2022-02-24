@@ -28,6 +28,7 @@ const CartStyles = styled.div`
   .quantity {
     display: flex;
     justify-content: space-between;
+    margin-top: 2.5rem;
   }
 
   .remove {
@@ -66,7 +67,7 @@ const CartItem = ({ price, quantity }) => {
         </Link>
         <div className="quantity">
           <span>
-            ${price.unit_amount / 100} &times; {quantity}
+            ${price.unit_amount / 100} &times; {quantity} &nbsp;
           </span>
           <strong>${(price.unit_amount / 100) * quantity}</strong>
         </div>

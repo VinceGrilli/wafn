@@ -6,9 +6,9 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 const LogoWrap = styled.div`
   margin: auto 0;
   flex: 0 1 36px;
+  border-top: 0.5rem solid black;
 
   @media (max-width: 768px) and (orientation: landscape) {
-    border-top: 0.5rem solid black;
     flex: 0 1 25px;
   }
 `;

@@ -22,13 +22,13 @@ const NavItem = styled(Link)`
     width: 0%;
     content: '.';
     color: transparent;
-    background: goldenrod;
+    background: var(--hiq-color-primary);
     height: 1px;
     transition: all 0.4s ease-in;
   }
 
   :hover {
-    color: goldenrod;
+    color: var(--hiq-color-primary);
     ::after {
       width: 100%;
     }
@@ -38,6 +38,7 @@ const NavItem = styled(Link)`
     padding: 20px 0;
     font-size: 1.5rem;
     z-index: 6;
+    margin-bottom: 1rem;
   }
 `;
 const NavbarLinks = ({ cart }) => (

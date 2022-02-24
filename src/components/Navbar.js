@@ -6,10 +6,10 @@ import Logo from './Logo';
 import Cart from './Cart';
 
 const Navigation = styled.nav`
-  height: 10vh;
+  height: 70px;
   display: flex;
   background-color: black;
-  position: relative;
+  position: static;
   justify-content: space-between;
   text-transform: uppercase;
   border-bottom: 2px solid #33333320;
