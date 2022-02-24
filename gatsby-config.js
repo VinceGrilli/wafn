@@ -19,7 +19,7 @@ module.exports = {
         connectionDetails: {
           host: process.env.GATSBY_MYSQL_HOST,
           user: process.env.GATSBY_MYSQL_USERNAME,
-          password: process.env.GATSBY_MYSQL_PSW,
+          password: 'holymackerel$',
           database: process.env.GATSBY_MYSQL_DB,
         },
         queries: [
