@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
-import Cart from './Cart';
 
 const NavItem = styled(Link)`
   font-size: 1.5rem;
@@ -41,15 +39,12 @@ const NavItem = styled(Link)`
     margin-bottom: 1rem;
   }
 `;
-const NavbarLinks = ({ cart }) => (
+const NavbarLinks = () => (
   <>
     <NavItem to="/">Home</NavItem>
     <NavItem to="/about">About</NavItem>
     <NavItem to="/contact">Contact</NavItem>
-    {cart && <Cart />}
   </>
 );
-
-NavbarLinks.propTypes = { cart: PropTypes.bool.isRequired };
 
 export default NavbarLinks;

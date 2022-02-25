@@ -102,10 +102,12 @@ const Navbar = ({ cart }) => {
       {navbarOpen ? (
         <Navbox>
           <NavbarLinks cart />
+          {cart && <Cart />}
         </Navbox>
       ) : (
         <Navbox open>
           <NavbarLinks cart />
+          {cart && <Cart />}
         </Navbox>
       )}
     </Navigation>
