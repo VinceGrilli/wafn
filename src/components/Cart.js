@@ -13,7 +13,7 @@ const CartWrapperStyles = styled.div`
   height: 100vh;
   padding: 2rem;
   background-color: white;
-  width: 50vw;
+  width: 75vw;
   z-index: 10;
   transition: all 0.3s ease-in;
   display: flex;
