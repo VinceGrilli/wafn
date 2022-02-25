@@ -90,7 +90,6 @@ const Hamburger = styled.div`
 `;
 const Navbar = ({ cart }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-
   return (
     <Navigation>
       <Logo />
@@ -102,13 +101,11 @@ const Navbar = ({ cart }) => {
       </Toggle>
       {navbarOpen ? (
         <Navbox>
-          <NavbarLinks />
-          {cart && <Cart />}
+          <NavbarLinks cart />
         </Navbox>
       ) : (
         <Navbox open>
-          <NavbarLinks />
-          {cart && <Cart />}
+          <NavbarLinks cart />
         </Navbox>
       )}
     </Navigation>

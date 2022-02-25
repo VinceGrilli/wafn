@@ -13,7 +13,6 @@ const ProductStyles = styled.div`
 const Items = () => {
   const { listProducts } = useContext(ProductsContext);
   const products = listProducts();
-  console.log(products);
   return (
     <ProductStyles>
       {products.map((product) => (

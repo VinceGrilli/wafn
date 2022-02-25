@@ -27,7 +27,7 @@ const Logo = () => {
 
   return (
     <LogoWrap as={Link} to="/">
-      <Img fixed={data.file.childImageSharp.fixed} alt="logo" />
+      <Img fixed={data.file.childImageSharp.fixed} />
     </LogoWrap>
   );
 };

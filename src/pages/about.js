@@ -40,7 +40,7 @@ export default function AboutPage() {
     }
   `);
   const image = img.file.childImageSharp.fluid;
-  console.log(image);
+
   return (
     <StoreLayout>
       <H2Styles>About WAFN</H2Styles>
