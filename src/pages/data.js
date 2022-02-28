@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
+import StoreLayout from '../components/StoreLayout';
 
 export default function DataPage() {
   const data = useStaticQuery(graphql`
@@ -14,5 +15,9 @@ export default function DataPage() {
     return { __html: content };
   }
 
-  return <div dangerouslySetInnerHTML={createMarkup()} />;
+  return (
+    <StoreLayout>
+      <div dangerouslySetInnerHTML={createMarkup()} />;
+    </StoreLayout>
+  );
 }

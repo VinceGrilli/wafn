@@ -19,6 +19,7 @@ const Checkout = () => {
     })
       .then(async (response) => {
         const { id } = await response.json();
+        console.log(response.json);
         localStorage.setItem('cart', '{}');
         const stripe = await stripePromise;
         const { error } = await stripe.redirectToCheckout({ sessionId: id });

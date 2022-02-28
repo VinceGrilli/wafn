@@ -10,7 +10,7 @@ module.exports.handler = async (event, context, callback) => {
     success_url: `${redirectUrl}?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: redirectUrl,
   });
-
+  console.log(session);
   const response = {
     statusCode: 200,
     body: JSON.stringify(session),
