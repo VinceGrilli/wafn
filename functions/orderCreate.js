@@ -7,14 +7,15 @@ module.exports.handler = async (event, context, callback) => {
     payment_method_types: ['card'],
     line_items: JSON.parse(event.body),
     mode: 'payment',
-    success_url: `${redirectUrl}?session_id={CHECKOUT_SESSION_ID}`,
+    /* eslint-disable-next-line */
+    success_url: redirectUrl + '?session_id={CHECKOUT_SESSION_ID}',
     cancel_url: redirectUrl,
   });
-  console.log(session);
+
   const response = {
     statusCode: 200,
     body: JSON.stringify(session),
   };
-  console.log(context);
+
   callback(null, response);
 };
