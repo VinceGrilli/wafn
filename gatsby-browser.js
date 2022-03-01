@@ -6,4 +6,4 @@
 
 // You can delete this file if you're not using it
 
-import "hiq/dist/hiq.css"
+import 'hiq/dist/hiq.css';
