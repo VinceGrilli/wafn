@@ -7,17 +7,20 @@ import CartItem from './CartItem';
 
 const CartWrapperStyles = styled.div`
   border-left: 1px solid #ddd;
+  display: flex;
+  justify-content: flex-start;
   position: fixed;
   right: 0;
   top: 0;
-  height: 100vh;
+  height: 100%;
   padding: 2rem;
   background-color: white;
-  width: 75vw;
+  width: 70%;
   z-index: 10;
+  display: block;
+  right: ${(props) => (props.toggle ? '-100%' : '0')};
+  display: ${(props) => (props.mode ? 'block' : 'none')};
   transition: all 0.3s ease-in;
-  display: flex;
-  justify-content: flex-start;
   div {
     justify-content: space-between;
   }
@@ -30,7 +33,7 @@ const Cart = () => {
       <button type="button" onClick={() => toggle()}>
         Cart &nbsp; <MDCart />
       </button>
-      <CartWrapperStyles style={{ display: mode ? 'initial' : 'none' }}>
+      <CartWrapperStyles mode={mode}>
         <div>
           <h1>Cart</h1>
           <button type="button" onClick={() => toggle()}>
