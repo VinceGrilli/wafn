@@ -73,8 +73,3 @@ yarn-error.log
 .vscode
 NOTES.md
 .netlify/state.json
-
-# Local Netlify folder
-.netlify
-
-plugins/gatsby-source-stripe/
